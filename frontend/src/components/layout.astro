@@ -2,13 +2,11 @@
 import Nav from "./nav.astro";
 
 interface Props {
-  frontmatter?: { title: string };
   title?: string;
 }
 
 const defaultTitle = "Stelmach";
-const title =
-  Astro.props.title ?? Astro.props.frontmatter?.title ?? defaultTitle;
+const title = Astro.props.title ?? defaultTitle;
 ---
 
 <html lang="en">

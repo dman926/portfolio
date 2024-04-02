@@ -3,8 +3,7 @@ import { getViteConfig } from "astro/config";
 
 export default getViteConfig({
   test: {
-    // TODO: remove when tests start being made
-    passWithNoTests: true,
+    globals: true,
     exclude: [
       "e2e/**",
       // Default

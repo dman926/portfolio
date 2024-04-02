@@ -1,0 +1,42 @@
+---
+import { toTitleCase } from "../utils/strings";
+
+interface Link {
+  title: string;
+  anchor: string;
+}
+
+interface OptionalLink {
+  title?: string;
+  anchor: string;
+}
+
+interface Props {
+  links: OptionalLink[];
+}
+
+const { links } = Astro.props;
+
+const cleanLinks = links.map<Link>(({ title, anchor }) => {
+  if (title) {
+    return { title, anchor };
+  }
+
+  return {
+    title: toTitleCase(anchor.replace("-", " ")),
+    anchor,
+  };
+});
+---
+
+<div>
+  <ul>
+    {
+      cleanLinks.map(({ title, anchor }) => (
+        <li>
+          <a href={`#${anchor}`}>{title}</a>
+        </li>
+      ))
+    }
+  </ul>
+</div>

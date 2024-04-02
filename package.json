@@ -1,0 +1,8 @@
+{
+  "name": "portfolio",
+  "version": "0.0.1",
+  "license": "GPL-3.0-or-later",
+  "devDependencies": {
+    "astro": "^4.5.12"
+  }
+}
