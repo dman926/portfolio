@@ -7,7 +7,9 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "test": "vitest",
+    "e2e": "playwright test"
   },
   "dependencies": {
     "@analogjs/astro-angular": "^1.0.2",
@@ -33,6 +35,7 @@
     "@types/react-dom": "^18.2.23",
     "astro": "^4.5.12",
     "astro-robots-txt": "^1.0.0",
+    "dotenv": "^16.4.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "rxjs": "^7.8.1",
@@ -42,5 +45,11 @@
     "typescript": "^5.4.3",
     "vue": "^3.4.21",
     "zone.js": "^0.14.4"
+  },
+  "//": "NOTE TO NIXOS DEVS: @playwright/test must be pinned to the same version in nixpkgs for browsers to work. Currently pinned to unstable.",
+  "devDependencies": {
+    "@playwright/test": "1.40.0",
+    "@types/node": "^20.12.2",
+    "vitest": "^1.4.0"
   }
 }
