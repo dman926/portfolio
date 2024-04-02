@@ -1,0 +1,104 @@
+---
+import Nav from "./nav.astro";
+
+interface Props {
+  frontmatter?: { title: string };
+  title?: string;
+}
+
+const defaultTitle = "Stelmach";
+const title =
+  Astro.props.title ?? Astro.props.frontmatter?.title ?? defaultTitle;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <section class="body-container">
+      <header>
+        <Nav />
+      </header>
+      <main>
+        <slot />
+      </main>
+    </section>
+
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+      .body-container {
+        display: flex;
+        flex-direction: column;
+        min-height: 100lvh;
+        background-color: var(--color-bg);
+        color: var(--color-text);
+      }
+      header {
+        flex: 0 0 auto;
+      }
+      main {
+        flex: 1 1 auto;
+        padding: 1rem;
+      }
+    </style>
+
+    <style is:global>
+      :root {
+        --color-bg: #f2f2f2;
+        --color-text: #444;
+        --bold-text: #222;
+        --nav-text: #000;
+        --code: #f2f2f2;
+        --block-quote-border: #999;
+        --block-quote-text: #222;
+        --slider-bg: #ddd;
+        --slider-bg-before: #fff;
+        --slider-input-bg: #8758ff;
+      }
+
+      :root.dark {
+        --color-bg: #000;
+        --color-text: #ddd;
+        --bold-text: #eee;
+        --nav-text: #ddd;
+        --code: #f2f2f2;
+        --block-quote-border: #8e32dc;
+        --block-quote-text: #ddd;
+      }
+    </style>
+
+    <script is:inline>
+      const theme = (() => {
+        if (
+          typeof localStorage !== "undefined" &&
+          localStorage.getItem("theme")
+        ) {
+          // if user already set a theme
+          return localStorage.getItem("theme");
+        }
+        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+          // if user prefers dark mode
+          return "dark";
+        }
+        // default
+        return "light";
+      })();
+
+      if (theme === "light") {
+        document.documentElement.classList.remove("dark");
+      } else {
+        document.documentElement.classList.add("dark");
+      }
+      window.localStorage.setItem("theme", theme);
+    </script>
+  </body>
+</html>
