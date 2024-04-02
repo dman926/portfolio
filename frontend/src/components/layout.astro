@@ -44,6 +44,9 @@ const title =
       }
       header {
         flex: 0 0 auto;
+        background-color: var(--color-bg-alt);
+        color: var(--color-text-inverted);
+        font-weight: bold;
       }
       main {
         flex: 1 1 auto;
@@ -54,7 +57,9 @@ const title =
     <style is:global>
       :root {
         --color-bg: #f2f2f2;
+        --color-bg-alt: #999;
         --color-text: #444;
+        --color-text-inverted: #fff;
         --bold-text: #222;
         --nav-text: #000;
         --code: #f2f2f2;
@@ -67,7 +72,9 @@ const title =
 
       :root.dark {
         --color-bg: #000;
+        --color-bg-alt: #333;
         --color-text: #ddd;
+        --color-text-inverted: #fff;
         --bold-text: #eee;
         --nav-text: #ddd;
         --code: #f2f2f2;
