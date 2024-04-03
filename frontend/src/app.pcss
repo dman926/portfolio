@@ -81,3 +81,19 @@
     }
   }
 }
+
+@layer components {
+  html,
+  body {
+    height: 100%;
+    margin: 0;
+  }
+
+  body {
+    @apply bg text;
+  }
+
+  header {
+    @apply bg-secondary text-primary;
+  }
+}
