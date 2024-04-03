@@ -1,3 +1,7 @@
+/**
+ * Convert base16 schemes (hex) to HSL channels for Tailwind
+ */
+
 import { createInterface } from "readline";
 import { parse } from "yaml";
 import chalk from "chalk";

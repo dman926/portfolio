@@ -1,14 +1,17 @@
 ---
+import SideBarLink from "./side-bar-link.astro";
 import { toTitleCase } from "../utils/strings";
 
 interface Link {
   title: string;
   anchor: string;
+  children?: Link[];
 }
 
 interface OptionalLink {
   title?: string;
   anchor: string;
+  children?: OptionalLink[];
 }
 
 export interface Props {
@@ -17,26 +20,25 @@ export interface Props {
 
 const { links } = Astro.props;
 
-const cleanLinks = links.map<Link>(({ title, anchor }) => {
-  if (title) {
-    return { title, anchor };
-  }
+const cleanLinks = (arr: OptionalLink[]): Link[] =>
+  arr.map<Link>(({ title, anchor, children }) => {
+    let base: Link = {
+      title: "",
+      anchor,
+    };
+    if (title) {
+      base.title = title;
+    } else {
+      base.title = toTitleCase(anchor.replace("-", " "));
+    }
+    if (children) {
+      base.children = cleanLinks(children);
+    }
 
-  return {
-    title: toTitleCase(anchor.replace("-", " ")),
-    anchor,
-  };
-});
+    return base;
+  });
 ---
 
-<div class="paper">
-  <ul>
-    {
-      cleanLinks.map(({ title, anchor }) => (
-        <li>
-          <a href={`#${anchor}`}>{title}</a>
-        </li>
-      ))
-    }
-  </ul>
-</div>
+<ul class="p-initial">
+  {cleanLinks(links).map((props) => <SideBarLink {...props} />)}
+</ul>
