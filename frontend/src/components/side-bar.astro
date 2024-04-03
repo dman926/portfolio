@@ -11,7 +11,7 @@ interface OptionalLink {
   anchor: string;
 }
 
-interface Props {
+export interface Props {
   links: OptionalLink[];
 }
 
@@ -29,7 +29,7 @@ const cleanLinks = links.map<Link>(({ title, anchor }) => {
 });
 ---
 
-<div>
+<div class="paper">
   <ul>
     {
       cleanLinks.map(({ title, anchor }) => (

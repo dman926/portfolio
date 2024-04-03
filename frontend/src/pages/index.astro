@@ -2,6 +2,14 @@
 import Layout from "../components/layout.astro";
 ---
 
-<Layout>
+<Layout
+  sidebar={{
+    links: [
+      {
+        anchor: "test",
+      },
+    ],
+  }}
+>
   <h1>Astro</h1>
 </Layout>

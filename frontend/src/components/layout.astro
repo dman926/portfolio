@@ -1,12 +1,18 @@
 ---
 import Nav from "./nav.astro";
+import SideBar, { type Props as SideBarProps } from "./side-bar.astro";
+import "../app.pcss";
 
 interface Props {
   title?: string;
+  sidebar?: SideBarProps;
 }
 
 const defaultTitle = "Stelmach";
-const title = Astro.props.title ?? defaultTitle;
+const title = Astro.props.title
+  ? `${Astro.props.title} | ${defaultTitle}`
+  : defaultTitle;
+const { sidebar } = Astro.props;
 ---
 
 <html lang="en">
@@ -18,68 +24,15 @@ const title = Astro.props.title ?? defaultTitle;
     <title>{title}</title>
   </head>
   <body>
-    <section class="body-container">
-      <header>
+    <section class="bg-bg text-text flex flex-col min-h-lvh">
+      <header class="bg-bg-alt text-text-inverted flex-none">
         <Nav />
       </header>
-      <main>
+      <main class="flex-auto p-4">
+        {sidebar && <SideBar {...sidebar} />}
         <slot />
       </main>
     </section>
-
-    <style>
-      html,
-      body {
-        height: 100%;
-        margin: 0;
-      }
-      .body-container {
-        display: flex;
-        flex-direction: column;
-        min-height: 100lvh;
-        background-color: var(--color-bg);
-        color: var(--color-text);
-      }
-      header {
-        flex: 0 0 auto;
-        background-color: var(--color-bg-alt);
-        color: var(--color-text-inverted);
-        font-weight: bold;
-      }
-      main {
-        flex: 1 1 auto;
-        padding: 1rem;
-      }
-    </style>
-
-    <style is:global>
-      :root {
-        --color-bg: #f2f2f2;
-        --color-bg-alt: #999;
-        --color-text: #444;
-        --color-text-inverted: #fff;
-        --bold-text: #222;
-        --nav-text: #000;
-        --code: #f2f2f2;
-        --block-quote-border: #999;
-        --block-quote-text: #222;
-        --slider-bg: #ddd;
-        --slider-bg-before: #fff;
-        --slider-input-bg: #8758ff;
-      }
-
-      :root.dark {
-        --color-bg: #000;
-        --color-bg-alt: #333;
-        --color-text: #ddd;
-        --color-text-inverted: #fff;
-        --bold-text: #eee;
-        --nav-text: #ddd;
-        --code: #f2f2f2;
-        --block-quote-border: #8e32dc;
-        --block-quote-text: #ddd;
-      }
-    </style>
 
     <script is:inline>
       const theme = (() => {
@@ -105,5 +58,13 @@ const title = Astro.props.title ?? defaultTitle;
       }
       window.localStorage.setItem("theme", theme);
     </script>
+
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+    </style>
   </body>
 </html>
