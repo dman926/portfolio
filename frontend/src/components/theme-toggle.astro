@@ -4,8 +4,8 @@
 
 <div class="theme-switch-wrapper">
   <label class="theme-switch" for="checkbox">
-    <input type="checkbox" id="checkbox" />
-    <div class="slider">
+    <input type="checkbox" class="peer" id="checkbox" />
+    <div class="slider bg-highlight before:bg-secondary checked:peer-bg-highlight">
       <!-- Sun icon -->
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -56,11 +56,7 @@
   const currentTheme = localStorage.getItem("theme");
 
   if (themeToggle && currentTheme && currentTheme === "dark") {
-    const slider = themeToggle.nextElementSibling;
-
-    slider?.classList.add("noanimate");
     themeToggle.checked = true;
-    slider?.classList.remove("noanimate");
   }
 
   // Function that will switch the theme based on the if the theme toggle is checked or not
@@ -77,7 +73,6 @@
   // Add an event listener to the theme toggle, which will switch the theme
   themeToggle?.addEventListener("change", switchTheme, false);
 </script>
-{/* TODO: use tailwind instead of base styles */}
 <style>
   .theme-switch-wrapper {
     display: flex;
@@ -97,7 +92,6 @@
   }
 
   .slider {
-    background-color: var(--slider-bg);
     bottom: 0;
     cursor: pointer;
     left: 0;
@@ -109,7 +103,6 @@
   }
 
   .slider:before {
-    background-color: var(--slider-bg-before);
     bottom: 4px;
     content: "";
     height: 26px;
@@ -118,10 +111,6 @@
     transition: 0.4s;
     width: 26px;
     border-radius: 50%;
-  }
-
-  input:checked + .slider {
-    background-color: var(--slider-input-bg);
   }
 
   input:checked + .slider:before {
@@ -135,12 +124,6 @@
       opacity 0.2s ease 0s,
       transform 0.35s ease 0s;
     pointer-events: none;
-  }
-
-  .slider.noanimate,
-  .slider.noanimate:before,
-  .slider.noanimate svg {
-    transition: none;
   }
 
   .feather-moon {
