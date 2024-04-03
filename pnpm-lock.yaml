@@ -11,6 +11,9 @@ importers:
       astro:
         specifier: ^4.5.12
         version: 4.5.13(@types/node@20.12.2)(less@4.2.0)(sass@1.72.0)(typescript@5.4.3)
+      typescript:
+        specifier: ^5.4.3
+        version: 5.4.3
 
   frontend:
     dependencies:
@@ -132,6 +135,22 @@ importers:
       vitest:
         specifier: ^1.4.0
         version: 1.4.0(@types/node@20.12.2)(less@4.2.0)(sass@1.72.0)
+
+  tools/base16:
+    dependencies:
+      chalk:
+        specifier: ^5.3.0
+        version: 5.3.0
+      yaml:
+        specifier: ^2.4.1
+        version: 2.4.1
+    devDependencies:
+      '@types/node':
+        specifier: ^20.12.2
+        version: 20.12.2
+      typescript:
+        specifier: ^5.4.3
+        version: 5.4.3
 
 packages:
 
@@ -4059,6 +4078,7 @@ packages:
 
   /buffer@5.7.1:
     resolution: {integrity: sha512-EHcyIPBQ4BSGlvjB16k5KgAJ27CIsHY/2JBmCRReo48y9rQ3MaUzWX3KVlBa4U7MyX02HdVj0K7C3WaB3ju7FQ==}
+    requiresBuild: true
     dependencies:
       base64-js: 1.5.1
       ieee754: 1.2.1
