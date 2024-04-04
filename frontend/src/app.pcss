@@ -1,3 +1,5 @@
+$headerHeight: 3.5rem;
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -95,9 +97,14 @@
 
   header {
     @apply bg-secondary text-primary;
+    height: $headerHeight;
   }
 
   .paper {
-    @apply bg-highlight p-2;
+    @apply bg-highlight p-2 rounded shadow;
+  }
+
+  .full-size {
+    height: calc(100dvh - $headerHeight);
   }
 }
