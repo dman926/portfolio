@@ -1,6 +1,7 @@
 ---
 import Nav from "./nav.astro";
 import SideBar, { type Props as SideBarProps } from "./side-bar.astro";
+import Partytown from "./partytown.astro";
 import "../app.pcss";
 
 interface Props {
@@ -22,6 +23,7 @@ const { sidebar } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <Partytown />
   </head>
   <body>
     <section class="flex flex-col min-h-lvh">

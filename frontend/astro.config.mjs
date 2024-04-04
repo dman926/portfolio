@@ -20,6 +20,10 @@ export default defineConfig({
     svelte(),
     vue(),
     analogjsangular(),
-    partytown(),
+    partytown({
+      config: {
+        forward: ["dataLayer.push"],
+      },
+    }),
   ],
 });
