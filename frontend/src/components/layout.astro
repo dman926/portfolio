@@ -70,14 +70,11 @@ const { sidebar } = Astro.props;
         document.documentElement.classList.add("dark");
       }
       window.localStorage.setItem("theme", theme);
+      
+      // Snap scroll on initial load, smooth scroll after load (needs JS)
+      setTimeout(() => {
+        document.documentElement.classList.add("scroll-smooth");
+      }, 500);
     </script>
-
-    <style>
-      html,
-      body {
-        height: 100%;
-        margin: 0;
-      }
-    </style>
   </body>
 </html>
