@@ -31,7 +31,11 @@ import Layout from "../components/layout.astro";
     ],
   }}
 >
-  <div class="full-size" slot="before-content">
+  <div
+    class="full-size bg-gradient-to-br from-base0D/20 via-base0E/30 to-base0B/40 animate-gradient-fancy fade-bottom"
+    slot="before-content"
+  >
+    {/* TODO: The gradient is cool, but it would be cooler to have the gradient move around the cursor position and maybe react to clicks */}
     <p>This is before the content</p>
   </div>
   <h1>Astro</h1>

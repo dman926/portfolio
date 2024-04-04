@@ -51,7 +51,31 @@ export default {
       ...baseColors,
       DEFAULT: colors.base03,
     },
-    extend: {},
+    extend: {
+      keyframes: {
+        "gradient-fancy": {
+          "0%, 100%": {
+            "background-position": "0% 50%",
+            "background-size": "200% 200%",
+          },
+          "50%": {
+            "background-position": "100% 50%",
+            "background-size": "300% 300%",
+          },
+          "25%": {
+            "background-position": "50% 100%",
+            "background-size": "400% 400%",
+          },
+          "75%": {
+            "background-position": "50% 0%",
+            "background-size": "500% 500%",
+          },
+        },
+      },
+      animation: {
+        "gradient-fancy": "gradient-fancy 30s ease infinite",
+      },
+    },
   },
   plugins: [],
 };

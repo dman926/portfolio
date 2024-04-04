@@ -82,9 +82,7 @@ $headerHeight: 3.5rem;
       --color-base0F: 349deg 89% 72%;
     }
   }
-}
 
-@layer components {
   html,
   body {
     height: 100%;
@@ -92,19 +90,34 @@ $headerHeight: 3.5rem;
   }
 
   body {
-    @apply bg text;
+    @apply bg text transition;
   }
 
   header {
     @apply bg-secondary text-primary;
-    height: $headerHeight;
   }
 
   .paper {
     @apply bg-highlight p-2 rounded shadow;
   }
+}
+
+@layer components {
+  header {
+    height: $headerHeight;
+  }
 
   .full-size {
     height: calc(100dvh - $headerHeight);
+  }
+
+  .fade-bottom {
+    mask: linear-gradient(
+        to bottom,
+        black,
+        cubic-bezier(1, 0, 0.8, 0.85) /* easeInOut */,
+        transparent
+      )
+      100% 50% / 100% 100% repeat-x;
   }
 }
