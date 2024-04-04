@@ -39,6 +39,8 @@ const cleanLinks = (arr: OptionalLink[]): Link[] =>
   });
 ---
 
-<ul class="p-initial">
-  {cleanLinks(links).map((props) => <SideBarLink {...props} />)}
-</ul>
+<nav class="p-initial">
+  <ul>
+    {cleanLinks(links).map((props) => <SideBarLink {...props} />)}
+  </ul>
+</nav>

@@ -25,7 +25,7 @@ const { sidebar } = Astro.props;
   </head>
   <body>
     <section class="flex flex-col min-h-lvh">
-      <header id="main-header" class="flex-none">
+      <header id="main-header">
         <Nav />
       </header>
       <div class="flex-auto">
@@ -70,7 +70,7 @@ const { sidebar } = Astro.props;
         document.documentElement.classList.add("dark");
       }
       window.localStorage.setItem("theme", theme);
-      
+
       // Snap scroll on initial load, smooth scroll after load (needs JS)
       setTimeout(() => {
         document.documentElement.classList.add("scroll-smooth");

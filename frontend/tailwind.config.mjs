@@ -36,6 +36,7 @@ export default {
       primary: colors.base0D,
       secondary: colors.base0E,
       muted: colors.base03,
+      highlight: colors.base07,
     },
     backgroundColor: {
       ...baseColors,
