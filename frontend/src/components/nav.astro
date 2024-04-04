@@ -11,7 +11,7 @@ const title = "the nav...";
 <div class="flex justify-between items-center px-4 py-2">
   {
     Astro.url.pathname === "/" ? (
-      <h1 class="cursor-default">{title}</h1>
+      <p class="cursor-default">{title}</p>
     ) : (
       <a href="/" class="plain-link">
         {title}
