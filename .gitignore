@@ -1,2 +1,5 @@
 node_modules
 .direnv/
+
+# macOS-specific files
+.DS_Store

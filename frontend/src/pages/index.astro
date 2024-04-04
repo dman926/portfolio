@@ -1,15 +1,49 @@
 ---
 import Layout from "../components/layout.astro";
+import BounceArrow from "src/components/bounce-arrow.astro";
 ---
 
 <Layout
   sidebar={{
     links: [
       {
-        anchor: "test",
+        anchor: "the-sidebar",
+      },
+      {
+        anchor: "item-2",
+        title: "Item #2",
+        children: [
+          {
+            anchor: "sub-item-1",
+          },
+          {
+            anchor: "sub-item-2",
+            children: [
+              {
+                anchor: "another-nest",
+              },
+            ],
+          },
+          {
+            anchor: "sub-item-3",
+          },
+        ],
       },
     ],
   }}
 >
+  <div
+    class="full-size bg-gradient-to-br from-base00 via-base02 to-base0E animate-gradient-fancy fade-bottom"
+    slot="before-content"
+  >
+    {
+      /* TODO: The gradient is cool, but it would be cooler to have the gradient move around the cursor position and maybe react to clicks */
+    }
+    <div class="h-full flex flex-col justify-center items-center">
+      <p>This is before the content</p>
+      <BounceArrow anchor="content" />
+    </div>
+  </div>
   <h1>Astro</h1>
+  <a href="/demo">Demos</a>
 </Layout>

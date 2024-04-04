@@ -24,14 +24,27 @@ const { sidebar } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
-    <section class="bg-bg text-text flex flex-col min-h-lvh">
-      <header class="bg-bg-alt text-text-inverted flex-none">
+    <section class="flex flex-col min-h-lvh">
+      <header id="main-header">
         <Nav />
       </header>
-      <main class="flex-auto p-4">
-        {sidebar && <SideBar {...sidebar} />}
-        <slot />
-      </main>
+      <div class="flex-auto">
+        <slot name="before-content" />
+        <div class="p-4 lg:flex full-size">
+          {
+            sidebar && (
+              <div class="flex-none">
+                <div class="paper lg:w-72">
+                  <SideBar {...sidebar} />
+                </div>
+              </div>
+            )
+          }
+          <main id="content" class="flex-auto p-2 anchor-pad">
+            <slot />
+          </main>
+        </div>
+      </div>
     </section>
 
     <script is:inline>
@@ -57,14 +70,11 @@ const { sidebar } = Astro.props;
         document.documentElement.classList.add("dark");
       }
       window.localStorage.setItem("theme", theme);
-    </script>
 
-    <style>
-      html,
-      body {
-        height: 100%;
-        margin: 0;
-      }
-    </style>
+      // Snap scroll on initial load, smooth scroll after load (needs JS)
+      setTimeout(() => {
+        document.documentElement.classList.add("scroll-smooth");
+      }, 500);
+    </script>
   </body>
 </html>

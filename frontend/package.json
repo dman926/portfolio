@@ -53,6 +53,8 @@
   "devDependencies": {
     "@playwright/test": "1.40.0",
     "@types/node": "^20.12.2",
+    "postcss-easing-gradients": "^3.0.1",
+    "postcss-simple-vars": "^7.0.1",
     "vitest": "^1.4.0"
   }
 }

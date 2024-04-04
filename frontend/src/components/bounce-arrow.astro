@@ -1,0 +1,41 @@
+---
+interface Props {
+  anchor: string;
+  direction?: "up" | "down";
+}
+
+const { anchor, direction = "down" } = Astro.props;
+
+const { bounceAnim, rotation } =
+  direction === "down"
+    ? {
+        bounceAnim: "animate-bounce",
+        rotation: "rotate-0",
+      }
+    : {
+        bounceAnim: "animate-bounce-inverted",
+        rotation: "rotate-180",
+      };
+---
+
+<div
+  class={`mt-10 inline-block relative border rounded-full border-highlight ${bounceAnim}`}
+>
+  <span
+    class="animate-ping w-full h-full rounded-full border-2 border-highlight absolute top-0 left-0 opacity-75"
+  ></span>
+  <a href={`#${anchor}`}>
+    <svg
+      class={`fill-base0B ${rotation}`}
+      xmlns="http://www.w3.org/2000/svg"
+      width="3rem"
+      height="3rem"
+      viewBox="0 0 24 24"
+    >
+      <path
+        class="fill-base0B"
+        d="M11 14.2V6q0-.425.288-.712T12 5q.425 0 .713.288T13 6v8.2l2.9-2.9q.275-.275.7-.275t.7.275q.275.275.275.7t-.275.7l-4.6 4.6q-.3.3-.7.3t-.7-.3l-4.6-4.6q-.275-.275-.275-.7t.275-.7q.275-.275.7-.275t.7.275z"
+      ></path>
+    </svg>
+  </a>
+</div>
