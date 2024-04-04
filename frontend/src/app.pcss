@@ -89,6 +89,10 @@ $headerHeight: 3.5rem;
     margin: 0;
   }
 
+  html {
+    @apply scroll-smooth;
+  }
+
   body {
     @apply bg text transition;
   }
@@ -97,27 +101,45 @@ $headerHeight: 3.5rem;
     @apply bg-secondary text-primary;
   }
 
+  a {
+    @apply text-primary visited:text-secondary;
+  }
+
   .paper {
     @apply bg-highlight p-2 rounded shadow;
   }
 }
 
 @layer components {
-  header {
-    height: $headerHeight;
+  /* Skip header, select first actual content block */
+  body > section > *:nth-child(2) {
+    @apply mt-[$headerHeight];
   }
 
+  header#main-header {
+    @apply h-[$headerHeight] z-[1] fixed inset-x-0 top-0;
+  }
+}
+
+@layer utilities {
   .full-size {
     height: calc(100dvh - $headerHeight);
   }
 
+  .anchor-pad {
+    @apply scroll-mt-[$headerHeight];
+  }
+
   .fade-bottom {
-    mask: linear-gradient(
+    @apply transition-[mask];
+    --mask: linear-gradient(
         to bottom,
         black,
         cubic-bezier(1, 0, 0.8, 0.85) /* easeInOut */,
         transparent
       )
       100% 50% / 100% 100% repeat-x;
+    -webkit-mask: var(--mask);
+    mask: var(--mask);
   }
 }

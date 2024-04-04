@@ -25,20 +25,22 @@ const { sidebar } = Astro.props;
   </head>
   <body>
     <section class="flex flex-col min-h-lvh">
-      <header class="flex-none">
+      <header id="main-header" class="flex-none">
         <Nav />
       </header>
       <div class="flex-auto">
         <slot name="before-content" />
-        <div class="p-4 lg:flex">
+        <div class="p-4 lg:flex full-size">
           {
             sidebar && (
-              <div class="flex-none paper lg:w-72">
-                <SideBar {...sidebar} />
+              <div class="flex-none">
+                <div class="paper lg:w-72">
+                  <SideBar {...sidebar} />
+                </div>
               </div>
             )
           }
-          <main class="flex-auto p-2">
+          <main id="content" class="flex-auto p-2 anchor-pad">
             <slot />
           </main>
         </div>

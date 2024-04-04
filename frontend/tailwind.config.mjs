@@ -50,6 +50,7 @@ export default {
     borderColor: {
       ...baseColors,
       DEFAULT: colors.base03,
+      highlight: colors.base0B,
     },
     extend: {
       keyframes: {
@@ -71,9 +72,20 @@ export default {
             "background-size": "500% 500%",
           },
         },
+        "bounce-inverted": {
+          "0%, 100%": {
+            transform: "translateY(0)",
+            "animation-timing-function": "cubic-bezier(0.8, 0, 1, 1)",
+          },
+          "50%": {
+            transform: "translateY(-25%)",
+            "animation-timing-function": "cubic-bezier(0, 0, 0.2, 1)",
+          },
+        },
       },
       animation: {
-        "gradient-fancy": "gradient-fancy 30s ease infinite",
+        "gradient-fancy": "gradient-fancy 15s ease infinite",
+        "bounce-inverted": "bounce-inverted 1s infinite",
       },
     },
   },

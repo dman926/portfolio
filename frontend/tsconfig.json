@@ -1,8 +1,12 @@
 {
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
+    "baseUrl": ".",
     "jsx": "preserve",
     "jsxImportSource": "react",
-    "types": ["vitest", "vitest/globals", "node"]
+    "types": ["vitest", "vitest/globals", "node"],
+    "paths": {
+      "~assets/*": ["./src/assets/*"]
+    }
   }
 }
