@@ -115,15 +115,19 @@ $headerHeight: 3.5rem;
   header#main-header {
     @apply h-[$headerHeight] z-[1] fixed inset-x-0 top-0;
   }
+
+  a.plain-link {
+    @apply text visited:text;
+  }
 }
 
 @layer utilities {
-  .full-size {
-    height: calc(100dvh - $headerHeight);
-  }
-
   .anchor-pad {
     @apply scroll-mt-[$headerHeight];
+  }
+
+  .full-size {
+    height: calc(100dvh - $headerHeight);
   }
 
   .fade-bottom {

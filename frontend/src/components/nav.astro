@@ -1,8 +1,19 @@
 ---
 import ThemeToggle from "./theme-toggle.astro";
+
+const title = "the nav...";
+console.log(Astro.url);
 ---
 
 <div class="flex justify-between items-center px-4 py-2">
-  <p>the nav...</p>
+  {
+    Astro.url.pathname === "/" ? (
+      <h1 class="cursor-default">{title}</h1>
+    ) : (
+      <a href="/" class="plain-link">
+        {title}
+      </a>
+    )
+  }
   <ThemeToggle />
 </div>
