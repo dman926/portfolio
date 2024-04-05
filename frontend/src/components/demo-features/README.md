@@ -1,0 +1,22 @@
+# Demo features
+
+- Base component library
+  - Button
+  - Input
+  - Checkbox
+  - Radio Button
+  - Select Dropdown
+  - Modal
+  - Tooltip
+  - Alert
+  - Tabs
+  - Accordion
+  - Card
+  - Navbar
+  - Sidebar
+  - Pagination
+  - Progress Bar / Spinner
+- Make base set of mock data
+- Data table
+- Charts
+- etc

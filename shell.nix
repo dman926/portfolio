@@ -1,7 +1,7 @@
 { pkgs ? import <nixpkgs> { } }:
 /**
- * If you are using NixOS, be sure `@playwright/test` in `./package.json`
- * is pinned to the same version of `playwright-driver` in nixpkgs.
+ * If you are using NixOS, be sure `@playwright/test` in `./frontend/package.json`
+ * is pinned to the same version of `playwright-driver` in nixpkgs for E2E tests.
  */
 pkgs.mkShell {
   packages = with pkgs; [

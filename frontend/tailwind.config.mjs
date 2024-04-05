@@ -32,11 +32,11 @@ export default {
     colors,
     textColor: {
       ...baseColors,
-      DEFAULT: colors.base05,
-      primary: colors.base0D,
-      secondary: colors.base0E,
+      DEFAULT: colors.base07,
+      primary: colors.base05,
+      secondary: colors.base04,
       muted: colors.base03,
-      highlight: colors.base07,
+      highlight: colors.base0C,
     },
     backgroundColor: {
       ...baseColors,
