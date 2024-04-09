@@ -7,8 +7,8 @@
     "convert": "pnpm run build && node ./dist/converter.js"
   },
   "devDependencies": {
-    "@types/node": "^20.12.2",
-    "typescript": "^5.4.3"
+    "@types/node": "^20.12.5",
+    "typescript": "^5.4.4"
   },
   "dependencies": {
     "chalk": "^5.3.0",
