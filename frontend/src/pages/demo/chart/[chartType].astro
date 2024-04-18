@@ -1,0 +1,23 @@
+---
+import type { ChartType } from "chart.js/auto";
+import SvelteChartJS from '~svelte/charts/chartjs.svelte';
+
+export function getStaticPaths() {
+  const chartTypes: ChartType[] = [
+    "bar",
+    "line",
+    "scatter",
+    "bubble",
+    "pie",
+    "doughnut",
+    "polarArea",
+    "radar",
+  ];
+
+  return chartTypes.map((chartType) => ({ params: { chartType } }));
+}
+
+const { chartType } = Astro.params;
+---
+
+<p>{chartType}</p>

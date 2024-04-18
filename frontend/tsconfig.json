@@ -6,7 +6,12 @@
     "jsxImportSource": "react",
     "types": ["vitest", "vitest/globals", "node"],
     "paths": {
-      "~assets/*": ["./src/assets/*"]
+      "~assets/*": ["./src/assets/*"],
+      "~components/*": ["./src/components/*"],
+      "~angular/*": ["./src/components/demo-features/angular/*"],
+      "~react/*": ["./src/components/demo-features/react/*"],
+      "~svelte/*": ["./src/components/demo-features/svelte/*"],
+      "~vue/*": ["./src/components/demo-features/vue/*"]
     }
   }
 }
