@@ -1,15 +1,23 @@
+---
+const { PUBLIC_GA_MEASUREMENT_ID } = import.meta.env;
+---
+
 <!-- Google tag (gtag.js) -->
 <script
   type="text/partytown"
   async
-  src={`https://www.googletagmanager.com/gtag/js?id=${import.meta.env.PUBLIC_GA_MEASUREMENT_ID}`}
+  src={`https://www.googletagmanager.com/gtag/js?id=${PUBLIC_GA_MEASUREMENT_ID}`}
   is:inline></script>
-<script type="text/partytown" is:inline>
+<script
+  type="text/partytown"
+  is:inline
+  define:vars={{ PUBLIC_GA_MEASUREMENT_ID }}
+>
   window.dataLayer = window.dataLayer || [];
   function gtag() {
     dataLayer.push(arguments);
   }
   gtag("js", new Date());
 
-  gtag("config", import.meta.env.PUBLIC_GA_MEASUREMENT_ID);
+  gtag("config", PUBLIC_GA_MEASUREMENT_ID);
 </script>
